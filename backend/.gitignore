@@ -1,0 +1,56 @@
+# Node.js
+node_modules/
+npm-debug.log
+/node_modules
+node_modules
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+pids/
+logs/
+results/
+build/
+dist/
+coverage/
+.nyc_output/
+*.seed
+*.pid
+*.log
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Environment configuration
+.env
+.env.local
+.env.*.local
+
+# Serverless
+serverless.env.yml
+
+# Production build
+build/
+dist/
+
+# Yarn
+.yarn/*
+!.yarn/versions
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/audit*
+
+# dotenv
+.env.local
+.env.development.local
+.env.test.local
+.env
