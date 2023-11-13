@@ -1,1 +1,1 @@
-# Mern_stack_job_posting_platform
+smimple mern/pern stack templete with prisma orm react and its libs 
