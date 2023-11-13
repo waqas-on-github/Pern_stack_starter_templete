@@ -7,9 +7,11 @@ import createError from 'http-errors'
 import logger from 'morgan'
 import CustomError from './utils/CustomError.js'
 
+
 // import routers
 import { router as indexRouter } from './routes/index.js'
-import { router  as usersRouter } from './routes/user.js'
+import { router  as productRouter } from './routes/product.router.js'
+import { router as catagoryRouter } from './routes/catagory.router.js'
 // create the express app
 const app = express()
 
@@ -25,8 +27,8 @@ app.use(
 
 // mount imported routes
 app.use('/', indexRouter)
-app.use('/api/v1/users', usersRouter)
-
+app.use("/api/v1/product" , productRouter)
+app.use("/api/v1/catagory" , catagoryRouter)
 
 
 // catch 404 and forward to error handler
@@ -44,8 +46,22 @@ app.use(function (err, req, res, next) {
       error : err.message
     })
   }
+
+
  if(err) {
-  return res.status(err.code || 500).json({
+
+    if(err.name ==="PrismaClientKnownRequestError") {
+
+     return  res.json({
+         success : false , 
+         err:  "prisma errorr" , 
+         message :  err.message ,
+
+     })
+    }
+
+
+  return res.status(err?.code || 500 || 400).json({
     sucess:  false,
     error : err.message
   })
