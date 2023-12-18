@@ -11,19 +11,15 @@ datasource db {
 }
 
 
-model Product {
+model User {
   id Int @id @default(autoincrement())
-  name  String @unique  
-  price Int @default(999)
-  createdAt DateTime? @default(now())
-  catagoryid Int?
-  catagory Catagory? @relation(fields: [catagoryid] , references: [id])
+  name  String @unique()  
+  email  String @unique() 
+  password String 
 }
 
 
-model Catagory {
-  id Int @id  @default(autoincrement())
-  name  String @unique 
-  products Product[]
-}
+
+
+
 
